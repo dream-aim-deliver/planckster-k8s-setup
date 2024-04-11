@@ -40,10 +40,8 @@ spec:
   dependsOn:
   - name: infrastructure
   interval: 1m0s
-  path: ./
+  path: ./releases/staging
   prune: true
   sourceRef:
     kind: GitRepository
     name: kubesat-planckster
-  timeout: 2m0s
-  wait: true

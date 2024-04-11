@@ -24,7 +24,7 @@ minikube   Ready    control-plane   69s   v1.25.2
 
 ```
 
-3. Install FluxCD CLI
+3. Install FluxCD CLI ( v2.1.0 ), you might have to download this version from the releases page on GitHub
 ```bash
 brew install fluxcd/tap/flux
 ```
@@ -102,22 +102,22 @@ flux create kustomization release \
   --depends-on=infrastructure \
   --decryption-provider=sops \
   --decryption-secret=sops-age \
-  --wait=true \
   --export >> kubesat-planckster.yaml
 ```
 
+10. Create the namespace for the application
+```bash
+kubectl create namespace sda
+```
 
-10. Apply the manifests
+11. Apply the manifests
 ```bash
 kubectl apply -f kubesat-planckster.yaml
 ```
 
-11. Verify the components are running
+12. Verify the components are running
 ```bash
 kubectl get pods -n sda
 ```
 
-12. Create the namespace for the application
-```bash
-kubectl create namespace sda
-```
+
