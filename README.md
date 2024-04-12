@@ -46,7 +46,7 @@ kubectl apply -f flux.yaml
 
 6. Verify the FluxCD components are running
 ```bash
-kubectl get pods -n flux-system
+watch kubectl get pods -n flux-system
 ```
 
 7. Generate a private Age Key or skip this step if you already have one
@@ -91,6 +91,10 @@ Set the RELEASE_PATH variable to `./releases/staging` or `./releases/production`
 export RELEASE_PATH="./releases/staging"
 ```
 
+Double check the path to the release manifests in the kubesat-planckster repository.
+```bash
+echo $RELEASE_PATH
+```
 Then create the kustomization for the release manifests
 
 ```bash
